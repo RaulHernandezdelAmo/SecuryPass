@@ -1,5 +1,8 @@
 package Controller;
 import View.homeView;
+import Model.home;
+import View.securePassView;
+
 public class homeController {
 
     int option;
@@ -14,7 +17,7 @@ public class homeController {
 
     private home home = new home(); //model
 
-    public void controller(){
+    public void homeController(){
 
         homeView homeView = new homeView();
         switch (this.option) {
@@ -25,7 +28,9 @@ public class homeController {
                 //call new register controller
                 break;
             case 3: //safe pass
-                //call pass controller
+                generatePassController gen = new generatePassController();
+                String pass = gen.generateSecureRandomPassword();
+                securePassView passView = new securePassView(pass);
                 break;
             case 4: //cypher doc
                 //call cypher controller

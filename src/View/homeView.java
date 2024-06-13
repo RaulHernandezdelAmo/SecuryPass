@@ -21,7 +21,7 @@ public class homeView {
             int option = sc.nextInt();
             homeController home = new homeController();
             home.setOption(option);
-            home.controller();
+            home.homeController();
         } catch (Exception e) {
             System.out.println("Not a valid option.");
             this.showHome();
