@@ -34,8 +34,11 @@ public class homeController {
                 break;
             case 4: //cypher doc
                 //call cypher controller
+            case 5: //decypher doc
+                //i need an option to decypher a document
             break;
             default:
+                homeView.showHome();
                 break;
         }
     }

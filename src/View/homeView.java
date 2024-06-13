@@ -15,6 +15,7 @@ public class homeView {
         System.out.println("2.- Create new register.");
         System.out.println("3.- Generate safe password.");
         System.out.println("4.- Cypher document.");
+        System.out.println("5.- Decypher document.");
         System.out.print("Choose the option (NUMBER): ");
 
         try {
