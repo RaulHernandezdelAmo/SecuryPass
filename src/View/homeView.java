@@ -4,7 +4,7 @@ import Controller.homeController;
 
 public class homeView {
     public void showHome() {
-        Scanner sc = new Scanner(System.in);
+        Scanner in = new Scanner(System.in);
         System.out.println();
         System.out.println("/***************************/");
         System.out.println("Welcome to SecuryPass");
@@ -19,7 +19,7 @@ public class homeView {
         System.out.print("Choose the option (NUMBER): ");
 
         try {
-            int option = sc.nextInt();
+            int option = in.nextInt();
             homeController home = new homeController();
             home.setOption(option);
             home.homeController();

@@ -9,8 +9,7 @@ import java.util.Scanner;
 public class cypherView {
 
     private Scanner readDoc() throws FileNotFoundException {
-        Scanner in =new Scanner(new File("PruebaDescifrar.txt"));
-        return in;
+        return new Scanner(new File("PruebaDescifrar.txt"));
     }
     public void showCypherMenu() throws FileNotFoundException {
         System.out.print("Select the document to decypher");
@@ -20,7 +19,8 @@ public class cypherView {
         System.out.println("2.- Transposition.");
         System.out.println("3.- Cesar.");
         System.out.print("Choose the option (NUMBER): ");
-        Scanner option = new Scanner (System.in);
+        Scanner in = new Scanner(System.in);
+        int option = in.nextInt();
         cypherController cypher = new cypherController(doc, option);
 
 
