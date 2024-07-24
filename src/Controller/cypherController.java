@@ -4,13 +4,12 @@ import View.cypherView;
 import View.securePassView;
 import Model.cypher;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Queue;
-import java.util.Scanner;
 
 public class cypherController {
     Queue<String> message = null;
+    cypher cypher = new cypher();
 
     //send to each cypher method controller depending on what the user chooses
     //empty constructor
@@ -19,9 +18,11 @@ public class cypherController {
         readMessage(path);
         switch (option) {
             case 1: //Vigenere
-                //call vigenere
+                //Primero cifro -> llamar funcion que cifre por vigeniere
+                //Despues lo meto en un documento
                 cypherView cypherView = new cypherView();
                 cypherView.showCypheredDocument(this.message);
+                cypher.saveCypheredMessage(this.message, "probando.txt");
                 break;
             case 2: //Trasposition
                 //call trasposition

@@ -1,14 +1,12 @@
 package Model;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.LinkedList;
 import java.util.Queue;
 
 public class cypher {
 
     //TODO revisar si me interesa usar linkedList u otra estructura
-    public static Queue<String> getMessage(String path) throws IOException {
+    public Queue<String> getMessage(String path) throws IOException {
         Queue<String> message = new LinkedList<>();
         try (BufferedReader br = new BufferedReader(new FileReader("D:/Users/Raul/IdeaProjects/SecuryPass/PruebaDescifrar.txt"))){
             String line;
@@ -19,4 +17,25 @@ public class cypher {
         return message;
     }
 
+    public boolean createDocument (String name){
+        try {
+            File document = new File(name);
+            return document.createNewFile();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void saveCypheredMessage (Queue<String> message, String name) throws IOException {
+
+        FileWriter file = new FileWriter("D:/Users/Raul/IdeaProjects/SecuryPass/" + name);
+        BufferedWriter bw = new BufferedWriter(file);
+        String line;
+        while (message.peek() != null){
+            line = message.remove();
+//            bw.write(line);
+            bw.write("hola");
+        }
+        System.out.println("Terminado bien");
+    }
 }
