@@ -3,6 +3,8 @@ import View.homeView;
 import Model.home;
 import View.securePassView;
 
+import java.io.IOException;
+
 public class homeController {
 
     int option;
@@ -17,7 +19,7 @@ public class homeController {
 
     private home home = new home(); //model
 
-    public void homeController(){
+    public void homeController() throws IOException {
 
         homeView homeView = new homeView();
         switch (this.option) {
@@ -34,6 +36,9 @@ public class homeController {
                 break;
             case 4: //cypher doc
                 //call cypher controller
+                cypherController cypher = new cypherController();
+                cypher.showView();
+
             case 5: //decypher doc
                 //i need an option to decypher a document
             break;
