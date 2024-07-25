@@ -26,16 +26,29 @@ public class cypher {
         }
     }
 
-    public void saveCypheredMessage (Queue<String> message, String name) throws IOException {
+    public boolean saveCypheredMessage (Queue<String> message, String name) throws IOException {
+        boolean success = true;
+        try {
+            FileWriter file = new FileWriter("D:/Users/Raul/IdeaProjects/SecuryPass/" + name);
+            System.out.println(file);
+            BufferedWriter bw = new BufferedWriter(file);
+            String line;
+            while (message.peek() != null) {
+                line = message.remove();
+                try{
+                    bw.write(line);
+                    //If it is neccesary check if its the last lane before always adding a new line
+                    bw.newLine();
+                }catch (Exception e){
+                    success = false;
+                }
+            }
+            bw.close();
+            System.out.println("Terminado bien");
 
-        FileWriter file = new FileWriter("D:/Users/Raul/IdeaProjects/SecuryPass/" + name);
-        BufferedWriter bw = new BufferedWriter(file);
-        String line;
-        while (message.peek() != null){
-            line = message.remove();
-//            bw.write(line);
-            bw.write("hola");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
-        System.out.println("Terminado bien");
+        return success;
     }
 }
